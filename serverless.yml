@@ -51,16 +51,24 @@ provider:
 #    variable1: value1
 
 # you can add packaging information here
-#package:
-#  patterns:
+package:
+  patterns:
+    - '!layer.sh'
+    - '!layer/**'
 #    - '!exclude-me.py'
 #    - '!exclude-me-dir/**'
 #    - include-me.py
 #    - include-me-dir/**
 
+layers:
+  awscli:
+    path: layer
+
 functions:
   hello:
     handler: handler.hello
+    layers:
+      - { Ref: AwscliLambdaLayer }
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

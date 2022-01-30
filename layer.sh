@@ -1,5 +1,5 @@
 #!/bin/bash
-# original: https://github.com/aws-samples/aws-lambda-layer-awscli/blob/5f30f9c96f4a3d837a1ebdcec0db15c07b5c7fd5/src/custom-layer/build.sh
+# original: https://github.com/aws/aws-cdk/blob/802a031245619715fb405d04a02056cf699e0fc2/packages/@aws-cdk/lambda-layer-awscli/layer/build.sh
 set -euo pipefail
 
 cd $(dirname $0)
