@@ -1,3 +1,4 @@
 .serverless
 node_modules
-layer
+layer/**
+layer.zip
