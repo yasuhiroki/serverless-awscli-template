@@ -8,7 +8,7 @@ echo ">> Building AWS Lambda layer inside a docker image..."
 
 TAG='aws-lambda-layer'
 
-docker build -t ${TAG} .
+docker buildx build --platform linux/amd64 -t ${TAG} .
 
 echo ">> Extrating layer.zip from the build container..."
 CONTAINER=$(docker run -d ${TAG} false)
@@ -18,7 +18,7 @@ echo ">> Stopping container..."
 docker rm -f ${CONTAINER}
 
 echo ">> Unzip layer.zip"
-mkdir -p layer
+rm -rf layer && mkdir -p layer
 unzip layer.zip -d layer/
 rm layer.zip
 
